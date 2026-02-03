@@ -4,7 +4,7 @@
 
 > **Caption & Hashtag yang Beneran Work** — pakai slang daerah, emoji viral, dan strategi yang relevan dengan pasar Indonesia.  
 
-![TagTemanin Preview](https://placehold.co/600x300/121212/ff6b35?text=TagTemanin+Preview) *(ganti dengan screenshot asli saat deploy)*
+![TagTemanin Preview](https://placehold.co/600x300/121212/ff6b35?text=TagTemanin+Preview)
 
 ---
 
@@ -53,8 +53,8 @@ Belum tersedia publik — tapi kamu bisa jalankan sendiri secara lokal!
 
 1. **Clone repositori**
    ```bash
-   git clone https://github.com/username/tagtemanin.git
-   cd tagtemanin
+   git clone https://github.com/penebangkayu/tag-temanin.git
+   cd tag-temanin
    ```
 
 2. **Install dependencies**
