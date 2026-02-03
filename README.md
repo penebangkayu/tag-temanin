@@ -135,7 +135,7 @@ MIT License — bebas pakai untuk personal maupun komersial.
 
 ---
 
-Dibuat dengan ❤️ untuk **UMKM & Creator Indonesia** oleh [Nama Kamu].
+Dibuat dengan ❤️ untuk **UMKM & Creator Indonesia** oleh Nafa Labs.
 
 ---
 
