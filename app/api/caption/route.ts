@@ -10,8 +10,8 @@ import { groqCall } from "@/lib/groq";
 
 // ── regional context fed into the prompt ────────────────────────
 const REGION_CONTEXT: Record<string, string> = {
-  Jogja: `Daerah: Yogyakarta. Gunakan slang Jogja yang natural seperti "yooo", "santai ae", "njing", "gombal", "wkwk", "nggak jelas". Sisipkan emoji lokal: 🏯🧁☕🌸💜. Frasa chas: "Cim karo Jogja", "Saklik!", "Santai ae".`,
-  Makassar: `Daerah: Makassar. Gunakan slang Makassar yang natural seperti "anging", "kaddee", "santai ji", "bale", "bajinya". Sisipkan emoji lokal: 🦀🌊🔥⚡🎯. Frasa chas: "Makassar style", "Santai ji bro", "Hei bale!".`,
+  Jogja: `Daerah: Yogyakarta. Gunakan slang Jogja yang natural seperti "nggih", "santai ae", "monggo", "gombal". Sisipkan emoji lokal: 🏯🧁☕🌸💜. Frasa khas: "Jogja Istimewa", "Monggo", "Santai ae".`,
+  Makassar: `Daerah: Makassar. Gunakan slang Makassar yang natural seperti "kaddee", "santai ji", "bale", "bajinya". Sisipkan emoji lokal: 🦀🌊🔥⚡🎯. Frasa chas: "Makassar style", "Santai ji bro", "Hei bale!".`,
   Medan: `Daerah: Medan. Gunakan slang Medan yang natural seperti "lae", "bah", "tak", "medan style", "kheloo". Sisipkan emoji lokal: 🥩🌶️💪🔥😤. Frasa chas: "Medan punya!", "Santai lae", "Tak takut".`,
 };
 

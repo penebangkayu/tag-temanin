@@ -1,142 +1,164 @@
 
-# 🇮🇩 TagTemanin  
-### Hyper-Local AI Toolbox for Indonesian Creators & UMKM  
+# 📖 Dokumentasi Developer - Tag Temanin
 
-> **Caption & Hashtag yang Beneran Work** — pakai slang daerah, emoji viral, dan strategi yang relevan dengan pasar Indonesia.  
-
-![TagTemanin Preview](https://placehold.co/600x300/121212/ff6b35?text=TagTemanin+Preview)
+Tag Temanin adalah platform **generasi konten AI open-source** yang membantu membuat caption dan hashtag cerdas untuk berbagai platform sosial media.  
+Proyek ini sepenuhnya open source dan tersedia di GitHub untuk kontribusi dan kustomisasi.
 
 ---
 
-## ✨ Fitur Utama
+## 🚀 Fitur
 
-- **Caption Generator**  
-  → 5 varian caption dalam sekali klik  
-  → Pilih daerah: **Jogja, Makassar, Medan**  
-  → Pilih platform: **Instagram, TikTok, Facebook**  
-  → Pilih nada: **Humoris, Religi, Gen-Z**
+- ⚡ **Generasi Bertenaga AI**  
+  Menggunakan model AI canggih untuk generasi caption dan hashtag yang cerdas.
 
-- **Hashtag Optimizer**  
-  → 30 hashtag tersegmentasi (Macro, Mid, Micro)  
-  → Estimasi reach per segmen  
-  → 10 emoji viral khusus Indonesia  
-  → Export semua dalam satu klik
+- 💻 **Open Source**  
+  Sepenuhnya open source dan tersedia di GitHub untuk kontribusi dan kustomisasi.
 
-- **Hyper-Local AI**  
-  → Tidak pakai template English-generic  
-  → Mengerti konteks budaya & tren lokal  
-  → Dibuat khusus untuk UMKM & content creator Indonesia
-
-- **UI/UX Santai & Viral-Friendly**  
-  → Desain dark mode dengan aksen oranye-gradient  
-  → Animasi smooth & micro-interactions  
-  → Responsif di semua perangkat (mobile-first)
+- 📚 **Integrasi Mudah**  
+  API endpoint sederhana yang dapat diintegrasikan ke platform atau aplikasi apapun.
 
 ---
 
-## 🚀 Demo
-Belum tersedia publik — tapi kamu bisa jalankan sendiri secara lokal!
+## 🔌 API Endpoint
+
+### 1. Generate Caption
+**Method:** `POST`  
+**Path:** `/api/caption`  
+**Deskripsi:** Generate caption berdasarkan keyword, platform, region, dan tone.
+
+**Request Body:**
+```json
+{
+  "keyword": "string",
+  "platform": "Instagram | TikTok | Facebook",
+  "region": "Jogja | Makassar | Medan",
+  "tone": "Humoris | Religi | Gen-Z"
+}
+```
+
+**Response:**
+```json
+{
+  "captions": ["caption1", "caption2", "caption3", "caption4", "caption5"]
+}
+```
+
+**Contoh Implementasi (cURL):**
+```bash
+curl -X POST http://localhost:3000/api/caption \
+  -H "Content-Type: application/json" \
+  -d '{
+    "keyword": "kopi",
+    "platform": "Instagram",
+    "region": "Jogja",
+    "tone": "Humoris"
+  }'
+```
+
+**Contoh Implementasi (JavaScript - fetch):**
+```javascript
+const response = await fetch("/api/caption", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    keyword: "kopi",
+    platform: "Instagram",
+    region: "Jogja",
+    tone: "Humoris"
+  })
+});
+
+const data = await response.json();
+console.log(data.captions);
+```
 
 ---
 
-## 🛠️ Tech Stack
+### 2. Riset Hashtag dan Emoji
+**Method:** `POST`  
+**Path:** `/api/hashtag`  
+**Deskripsi:** Riset hashtag dan emoji berdasarkan keyword.
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Inline styles + CSS keyframes (zero external CSS lib)
-- **AI Backend**: Groq API + fallback model chain
-- **Deployment**: Vercel
-- **Responsif**: Mobile-first dengan deteksi `window.innerWidth`
+**Request Body:**
+```json
+{
+  "keyword": "string"
+}
+```
+
+**Response:**
+```json
+{
+  "macro": ["#hashtag1", "#hashtag2"],
+  "mid": ["#hashtag1", "#hashtag2"],
+  "micro": ["#hashtag1", "#hashtag2"],
+  "emoji": ["🔥", "✨"],
+  "reach": {
+    "macro": "rentang jangkauan",
+    "mid": "rentang jangkauan",
+    "micro": "rentang jangkauan"
+  }
+}
+```
+
+**Contoh Implementasi (cURL):**
+```bash
+curl -X POST http://localhost:3000/api/hashtag \
+  -H "Content-Type: application/json" \
+  -d '{
+    "keyword": "kopi"
+  }'
+```
+
+**Contoh Implementasi (JavaScript - fetch):**
+```javascript
+const response = await fetch("/api/hashtag", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ keyword: "kopi" })
+});
+
+const data = await response.json();
+console.log(data);
+```
 
 ---
 
-## 📦 Instalasi Lokal
+## 🛠️ Memulai
 
-1. **Clone repositori**
+Ikuti langkah-langkah berikut untuk menjalankan proyek secara lokal:
+
+1. **Clone Repository**
    ```bash
    git clone https://github.com/penebangkayu/tag-temanin.git
-   cd tag-temanin
    ```
 
-2. **Install dependencies**
+2. **Install Dependencies**
    ```bash
    npm install
-   # atau
-   pnpm install
    ```
 
-3. **Buat file `.env.local`**
-   ```env
-   GROQ_API_KEY=your_groq_api_key_here
+3. **Set Environment Variables**
+   ```bash
+   GROQ_API_KEY=your_api_key_here
    ```
 
-4. **Jalankan dev server**
+4. **Jalankan Development Server**
    ```bash
    npm run dev
    ```
 
-5. Buka [http://localhost:3000](http://localhost:3000)
-
----
-
-## 🧠 Struktur Proyek
-
-```
-src/
-├── app/
-│   ├── page.tsx          → Halaman utama
-│   ├── caption/page.tsx  → Caption Generator
-│   └── hashtag/page.tsx  → Hashtag Optimizer
-├── components/
-│   ├── nav.tsx           → Navbar responsif (dengan mobile menu)
-│   └── ui.tsx            → Card, Badge, CopyBtn, PricingModal
-└── lib/
-    └── groq.ts           → Groq client dengan fallback model & console.log
-```
-
----
-
-## 💡 Catatan Pengembangan
-
-- Semua halaman **sudah mobile-responsive** (termasuk form, grid, dan overlay).
-- Hover effect **otomatis dinonaktifkan di mobile**.
-- Dropdown (`<select>`) menggunakan **custom arrow** agar tidak overflow.
-- Model AI mana yang dipakai bisa dilihat di **console log** (untuk debugging).
-- UI mengikuti preferensi:  
-  → Dark background (`#121212`)  
-  → Font logo: **Libre Baskerville**  
-  → Font konten: **Syne**  
-  → Warna aksen: **Oranye-gradient (#ff6b35 → #e84393)**
-
----
-
-## 💰 Pricing (Demo)
-
-| Paket | Harga | Fitur |
-|------|-------|------|
-| **Caption AI** | Rp 25.000/bulan | Unlimited generate, 3 daerah, 3 platform |
-| **Hashtag Per-Riset** | Rp 15.000/riset | 30 hashtag + emoji + estimasi reach |
-| **Hashtag Unlimited** | Rp 50.000/bulan | Semua fitur + export + priority update |
-
-> ⚠️ *Harga hanya untuk referensi. Belum ada integrasi pembayaran.*
-
 ---
 
 ## 🤝 Kontribusi
-Proyek ini bersifat eksperimental. Jika kamu ingin berkontribusi:
-1. Fork repositori
-2. Buat branch baru (`feat/nama-fitur`)
-3. Commit & push
-4. Buka Pull Request
+
+Kami menyambut kontribusi dari developer di semua level.  
+Bergabunglah dengan kami di GitHub dan bantu tingkatkan **Tag Temanin**!
+
+- 🌐 Repository GitHub: Tag Temanin [(github.com)](https://github.com/penebangkayu/tag-temanin)
 
 ---
 
-## 📄 Lisensi
-MIT License — bebas pakai untuk personal maupun komersial.
+## 📜 Lisensi
 
----
-
-Dibuat dengan ❤️ untuk **UMKM & Creator Indonesia** oleh Nafa Labs.
-
----
-
-> **TagTemanin** = "Tag" + "Temenin" → AI yang nemenin kamu bikin konten biar makin viral! 🚀
+Proyek ini bersifat **open source** dan tersedia untuk kontribusi serta kustomisasi sesuai kebutuhan komunitas.
